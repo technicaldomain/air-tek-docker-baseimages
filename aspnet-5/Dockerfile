@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/aspnet:5.0-focal
-RUN addgroup -S app && adduser -S app -G app
+RUN groupadd -g 1000 app && useradd app -u 1000 -g 1000 -m -s /usr/sbin/nologin
 USER app
 ENV ASPNETCORE_HTTP_PORTS=8080
 ENV ASPNETCORE_URLS=http://+:8080
