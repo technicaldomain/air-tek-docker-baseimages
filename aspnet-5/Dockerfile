@@ -7,3 +7,4 @@ ENV ASPNETCORE_URLS=http://+:8080
 ENV DOTNET_URLS=http://+:8080
 EXPOSE 8080
 WORKDIR /app
+HEALTHCHECK --interval=1m --timeout=3s CMD curl -f http://localhost:8080/healthz || exit 1
